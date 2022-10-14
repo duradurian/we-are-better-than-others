@@ -1,23 +1,24 @@
-function main() {
-    input.buttonIsPressed(Button.A)
-    radio.setGroup(42)
-}
-
-function on_received_number(receivedNumber: number) {
+radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 2) {
-        motion.driveStraight(30)
-        led.plot(1, 1)
-    }
-    
-}
-
-radio.onReceivedNumber(on_received_number)
-function on_received_number2(receivedNumber2: any) {
-    if (receivedNumber2 == 1) {
+        motion.driveStraight(50)
+        basic.pause(100)
         motion.stop()
-        led.plot(2, 2)
+    } else if (receivedNumber == 1) {
+        motion.driveStraight(0)
+        motion.stop()
+    } else if (receivedNumber == 3) {
+        motion.turnLeft(40)
+        basic.pause(100)
+        motion.stop()
+    } else if (receivedNumber == 4) {
+        motion.turnRight(40)
+        basic.pause(100)
+        motion.stop()
+    } else {
+        basic.showIcon(IconNames.No)
     }
-    
-}
-
-radio.onReceivedNumber(on_received_number)
+})
+radio.setGroup(42)
+basic.showIcon(IconNames.Yes)
+basic.pause(500)
+basic.clearScreen()
