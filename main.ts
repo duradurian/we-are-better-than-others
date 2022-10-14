@@ -2,8 +2,6 @@ radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 2) {
         basic.showIcon(IconNames.Square)
         motion.driveStraight(50)
-        basic.pause(500)
-        motion.stop()
         basic.clearScreen()
     } else if (receivedNumber == 1) {
         basic.showIcon(IconNames.SmallDiamond)
@@ -12,15 +10,15 @@ radio.onReceivedNumber(function (receivedNumber) {
         basic.clearScreen()
     } else if (receivedNumber == 3) {
         basic.showIcon(IconNames.SmallSquare)
-        motion.turnLeft(40)
-        basic.pause(500)
-        motion.stop()
+        motion.turnLeft(20)
         basic.clearScreen()
     } else if (receivedNumber == 4) {
         basic.showIcon(IconNames.Target)
-        motion.turnRight(40)
-        basic.pause(500)
-        motion.stop()
+        motion.turnRight(20)
+        basic.clearScreen()
+    } else if (receivedNumber == 5) {
+        basic.showIcon(IconNames.Sword)
+        motion.driveStraight(-31)
         basic.clearScreen()
     } else {
         basic.showIcon(IconNames.No)
